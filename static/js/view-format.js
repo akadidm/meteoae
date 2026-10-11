@@ -11,6 +11,7 @@ const fill = (s, vars) => s.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k]
 export function fmt(S, lang) {
   const nfs = [0, 1].map((d) => new Intl.NumberFormat(lang, { minimumFractionDigits: d, maximumFractionDigits: d }));
   const num = (v, d = 1) => nfs[d].format(v);
+  const u = S.units || { C: '°C', mm: 'mm', kmh: 'km/h', hPa: 'hPa', cm: 'cm', h: 'h', min: 'min' };
   const na = `<span class="na">${esc(S.na)}</span>`;
   const unit = (kind, v, d, suffix, signed = false) => {
     if (v == null) return na;
@@ -26,20 +27,20 @@ export function fmt(S, lang) {
     weekday: (iso) => weekday.format(new Date(`${iso}T12:00:00Z`)),
     weekdayShort: (iso) => weekdayShort.format(new Date(`${iso}T12:00:00Z`)),
     monthYear: (y, m) => fill(S.monthYearFormat, { month: S.monthsLong[m - 1], year: y }),
-    T: (v) => unit('t', v, 1, '°C'),
+    T: (v) => unit('t', v, 1, u.C),
     // Rounded, unit-less "26°" (the unit switch keeps data-dp="0").
     Tr: (v) => (v == null ? na : `<i data-t="${Number(v.toFixed(1))}" data-dp="0">${num(Math.round(v) || 0, 0)}</i>°`),
-    TD: (v) => unit('td', v, 1, '°C', true),
-    P: (v) => unit('p', v, 1, 'mm'),
-    W: (v) => unit('w', v, 0, 'km/h'),
-    S: (v) => unit('s', v, 1, 'cm'),
-    hPa: (v) => (v == null ? na : `${num(v, 0)} hPa`),
+    TD: (v) => unit('td', v, 1, u.C, true),
+    P: (v) => unit('p', v, 1, u.mm),
+    W: (v) => unit('w', v, 0, u.kmh),
+    S: (v) => unit('s', v, 1, u.cm),
+    hPa: (v) => (v == null ? na : `${num(v, 0)} ${u.hPa}`),
     pct: (v) => (v == null ? na : `${num(v, 0)} %`),
-    hours: (v, d = 1) => (v == null ? na : `${num(v, d)} h`),
+    hours: (v, d = 1) => (v == null ? na : `${num(v, d)} ${u.h}`),
     hm: (h) => {
       if (h == null) return na;
       const total = Math.round(h * 60);
-      return `${Math.floor(total / 60)}&#8239;h ${pad(total % 60)}&#8239;min`;
+      return `${Math.floor(total / 60)}&#8239;${u.h} ${pad(total % 60)}&#8239;${u.min}`;
     },
     dir: (deg) => (deg == null ? na : `<span class="with-ic">${windArrow(deg)}${S.compass[Math.round((((deg % 360) + 360) % 360) / 22.5) % 16]} (${Math.round(deg)}°)</span>`),
     code: (c, isDay = true) => {

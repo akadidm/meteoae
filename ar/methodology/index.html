@@ -27,26 +27,26 @@
 <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
 <script>try{var th=localStorage.getItem('theme');if(th==='light'||th==='dark')document.documentElement.setAttribute('data-theme',th)}catch(e){}</script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/static/brand/icon-32.png?v=mv3qoqns" type="image/png" sizes="32x32">
-<link rel="icon" href="/static/brand/icon-192.png?v=mv3qoqns" type="image/png" sizes="192x192">
-<link rel="apple-touch-icon" href="/static/brand/apple-touch-icon.png?v=mv3qoqns">
+<link rel="icon" href="/static/brand/icon-32.png?v=mv3s20b0" type="image/png" sizes="32x32">
+<link rel="icon" href="/static/brand/icon-192.png?v=mv3s20b0" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/static/brand/apple-touch-icon.png?v=mv3s20b0">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/static/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/static/site.css?v=mv3qoqns">
+<link rel="stylesheet" href="/static/site.css?v=mv3s20b0">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://weatherplus.ae/#organization","name":"WeatherPlus","url":"https://weatherplus.ae/","logo":{"@type":"ImageObject","url":"https://weatherplus.ae/static/brand/logo-square.png"}},{"@type":"WebSite","@id":"https://weatherplus.ae/#website","url":"https://weatherplus.ae/","name":"WeatherPlus","publisher":{"@id":"https://weatherplus.ae/#organization"},"inLanguage":"ar"},{"@type":"WebPage","@id":"https://weatherplus.ae/ar/methodology/#webpage","url":"https://weatherplus.ae/ar/methodology/","name":"البيانات والمنهجية: مصدر بيانات الطقس لدينا","description":"من أين تأتي توقعات WeatherPlus، وكم مرة تُحدَّث، وما مدى موثوقيتها.","isPartOf":{"@id":"https://weatherplus.ae/#website"},"inLanguage":"ar","breadcrumb":{"@id":"https://weatherplus.ae/ar/methodology/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://weatherplus.ae/ar/methodology/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://weatherplus.ae/ar/"},{"@type":"ListItem","position":2,"name":"البيانات والمنهجية","item":"https://weatherplus.ae/ar/methodology/"}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">انتقل إلى المحتوى</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="brand brand-img" href="/ar/"><img class="brand-logo brand-logo-light" src="/static/brand/weatherplus-logo.png?v=mv3qoqns" width="430" height="112" alt="WeatherPlus"><img class="brand-logo brand-logo-dark" src="/static/brand/weatherplus-logo-dark.png?v=mv3qoqns" width="430" height="112" alt="WeatherPlus"></a>
+    <a class="brand brand-img" href="/ar/"><img class="brand-logo brand-logo-light" src="/static/brand/weatherplus-logo.png?v=mv3s20b0" width="430" height="112" alt="WeatherPlus"><img class="brand-logo brand-logo-dark" src="/static/brand/weatherplus-logo-dark.png?v=mv3s20b0" width="430" height="112" alt="WeatherPlus"></a>
     <form class="search" role="search" action="/ar/" data-index="/ar/search-index.json" data-prefix="/ar" data-s="{&quot;forecast&quot;:&quot;توقعات {city}&quot;,&quot;country&quot;:&quot;البلد&quot;}">
       <label class="sr-only" for="q">ابحث عن مدينة أو بلد أو مطار</label>
-      <svg class="ic i-search ic-search" aria-hidden="true"><use href="/static/icons.svg?v=mv3qoqns#search"/></svg>
+      <svg class="ic i-search ic-search" aria-hidden="true"><use href="/static/icons.svg?v=mv3s20b0#search"/></svg>
       <input id="q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="ابحث عن مدينة" aria-autocomplete="list" aria-controls="search-results" aria-expanded="false">
       <ul id="search-results" class="search-results" role="listbox" hidden></ul>
     </form>
-    <button class="theme-toggle" type="button" aria-label="الوضع الداكن" aria-pressed="false"><svg class="ic i-moon ic-dark" aria-hidden="true"><use href="/static/icons.svg?v=mv3qoqns#moon"/></svg><svg class="ic i-sun ic-light" aria-hidden="true"><use href="/static/icons.svg?v=mv3qoqns#sun"/></svg></button>
+    <button class="theme-toggle" type="button" aria-label="الوضع الداكن" aria-pressed="false"><svg class="ic i-moon ic-dark" aria-hidden="true"><use href="/static/icons.svg?v=mv3s20b0#moon"/></svg><svg class="ic i-sun ic-light" aria-hidden="true"><use href="/static/icons.svg?v=mv3s20b0#sun"/></svg></button>
   </div>
 </header>
 <main id="main" class="wrap">
@@ -54,7 +54,7 @@
 
 <header class="page-head"><h1>البيانات والمنهجية</h1>
 <p class="lede">كيف تُنتج أرقام هذا الموقع، وماذا تعني، وما حدودها.</p></header>
-<dl class="method"><dt>التوقعات</dt><dd>تأتي التوقعات من <a href="https://open-meteo.com/en/docs" rel="noopener">واجهة Open-Meteo Forecast</a>، التي تختار لكل موقع أفضل النماذج العددية المتاحة (مصالح وطنية مثل ECMWF وMétéo-France وDWD وNOAA). يحمّلها الموقع عدة مرات في اليوم، وتحدّثها كل صفحة توقعات في متصفحك عندما يمر عليها أكثر من ساعة.</dd><dt>تقديري وليس مرصودا</dt><dd>كل قيمة توقع نموذجي لخلية شبكية، وليست قراءة من محطة أرصاد. تبيّن صفحة التوقعات الخلية المستعملة وبعدها عن وسط المدينة. تكون الفروق أكبر في المناطق الساحلية والجبلية، وفي القيم القصوى، وفي الأمطار.</dd><dt>المعدلات المناخية</dt><dd>يعرض قسم المناخ في صفحة كل مدينة معدلات شهرية على مدى 30 سنة (1996–2025) من مشروع <a href="https://power.larc.nasa.gov/" rel="noopener">NASA POWER</a> (إعادة تحليل MERRA-2، شبكة بدقة 50 كم تقريبًا). تُعدَّل درجات الحرارة من ارتفاع الخلية الشبكية إلى ارتفاع المدينة (−6.5 °م لكل 1000 م). الأمطار في إعادة التحليل أكثر تجانسًا منها في محطة الرصد: قد تُقدَّر مجاميع الأماكن شديدة الرطوبة أو شديدة الجفاف بأقل أو بأكثر من الواقع.</dd><dt>الموثوقية</dt><dd>اليومان أو الأيام الثلاثة الأولى هي الأكثر موثوقية. أما الأيام التي تتجاوز أسبوعا تقريبا فهي أقل موثوقية بكثير: اقرأها كاتجاه عام لا كتوقع يوما بيوم.</dd><dt>الوحدات</dt><dd>القيم بالوحدات المترية: °C ومم وكم/س وهكتوباسكال.</dd><dt>الترخيص</dt><dd>بيانات التوقعات: CC BY 4.0، Open-Meteo.com. البيانات المناخية: مشروع POWER التابع لمركز لانغلي للأبحاث (ناسا)، ملكية عامة.</dd></dl>
+<dl class="method"><dt>التوقعات</dt><dd>تأتي التوقعات من <a href="https://open-meteo.com/en/docs" rel="noopener">واجهة Open-Meteo Forecast</a>، التي تختار لكل موقع أفضل النماذج العددية المتاحة (مصالح وطنية مثل ECMWF وMétéo-France وDWD وNOAA). يحمّلها الموقع عدة مرات في اليوم، وتحدّثها كل صفحة توقعات في متصفحك عندما يمر عليها أكثر من ساعة.</dd><dt>تقديري وليس مرصودا</dt><dd>كل قيمة توقع نموذجي لخلية شبكية، وليست قراءة من محطة أرصاد. تبيّن صفحة التوقعات الخلية المستعملة وبعدها عن وسط المدينة. تكون الفروق أكبر في المناطق الساحلية والجبلية، وفي القيم القصوى، وفي الأمطار.</dd><dt>المعدلات المناخية</dt><dd>يعرض قسم المناخ في صفحة كل مدينة معدلات شهرية على مدى 30 سنة (1996–2025) من مشروع <a href="https://power.larc.nasa.gov/" rel="noopener">NASA POWER</a> (إعادة تحليل MERRA-2، شبكة بدقة 50 كم تقريبًا). تُعدَّل درجات الحرارة من ارتفاع الخلية الشبكية إلى ارتفاع المدينة (−6.5 °م لكل 1000 م). الأمطار في إعادة التحليل أكثر تجانسًا منها في محطة الرصد: قد تُقدَّر مجاميع الأماكن شديدة الرطوبة أو شديدة الجفاف بأقل أو بأكثر من الواقع.</dd><dt>الموثوقية</dt><dd>اليومان أو الأيام الثلاثة الأولى هي الأكثر موثوقية. أما الأيام التي تتجاوز أسبوعا تقريبا فهي أقل موثوقية بكثير: اقرأها كاتجاه عام لا كتوقع يوما بيوم.</dd><dt>الوحدات</dt><dd>القيم بالوحدات المترية: °م ومم وكم/س وهكتوباسكال.</dd><dt>الترخيص</dt><dd>بيانات التوقعات: CC BY 4.0، Open-Meteo.com. البيانات المناخية: مشروع POWER التابع لمركز لانغلي للأبحاث (ناسا)، ملكية عامة.</dd></dl>
 </main>
 <footer class="site-footer">
   <div class="wrap">
@@ -68,7 +68,7 @@
     <p class="copyright">© 2026 WeatherPlus</p>
   </div>
 </footer>
-<script src="/static/site.js?v=mv3qoqns" defer></script>
+<script src="/static/site.js?v=mv3s20b0" defer></script>
 
 </body>
 </html>

@@ -238,7 +238,8 @@ function comboChart({ days, sel, S, f }) {
   const lo = Math.min(...temps), hi = Math.max(...temps);
   const span = Math.max(hi - lo, 4);
   const y = (v) => top + ((hi - v) / span) * tempH;
-  const x = (i) => i * colW + colW / 2;
+  // Right to left pages run the days from the right edge, like the day cards.
+  const x = (i) => (S.rtl ? n - 1 - i : i) * colW + colW / 2;
   const rainTop = top + tempH + gap, rainBase = rainTop + rainH;
   const pMax = Math.max(5, ...days.map((d) => d.precip ?? 0));
   const num0 = (v) => f.num(Math.round(v) || 0, 0);
@@ -249,7 +250,7 @@ function comboChart({ days, sel, S, f }) {
     const rain = d.precip ?? 0;
     const bh = rain > 0 ? Math.max(2, (rain / pMax) * rainH) : 0;
     return `<g class="fc-cc${i === sel ? ' sel' : ''}" data-day="${i}">
-<rect class="fc-cc-hit" x="${i * colW}" y="0" width="${colW}" height="${H}" rx="8"/>
+<rect class="fc-cc-hit" x="${cx - colW / 2}" y="0" width="${colW}" height="${H}" rx="8"/>
 ${d.tmax != null ? `<use href="${SPRITE}#${name}" x="${cx - 16}" y="${y(d.tmax) - 62}" width="32" height="32"/>` : ''}
 ${d.tmax != null ? `<text class="fc-cc-hi" x="${cx}" y="${y(d.tmax) - 12}">${tLabel(d.tmax)}</text>` : ''}
 ${d.tmin != null ? `<text class="fc-cc-lo" x="${cx}" y="${y(d.tmin) + 24}">${tLabel(d.tmin)}</text>` : ''}

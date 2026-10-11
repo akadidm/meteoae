@@ -3,10 +3,10 @@
 // wind, direction]). The markup matches markerInner() in src/pages/map.js.
 import { icon, weatherIconName, windArrow } from './icons.js';
 
-function markerInner(s, wind) {
+function markerInner(s, wind, kmh = 'km/h') {
   const [code, isDay, hi, lo, w, dir] = s || [];
   const sym = wind ? (dir != null ? windArrow(dir) : icon('wind')) : icon(weatherIconName(code, !!isDay) || 'cloud', 'ic-w');
-  const vals = wind ? `<b class="mk-wind">${w ?? '–'}</b><small>km/h</small>` : `<b class="mk-hi">${hi ?? '–'}°</b><b class="mk-lo">${lo ?? '–'}°</b>`;
+  const vals = wind ? `<b class="mk-wind">${w ?? '–'}</b><small>${kmh}</small>` : `<b class="mk-hi">${hi ?? '–'}°</b><b class="mk-lo">${lo ?? '–'}°</b>`;
   return `<span class="mk-sym">${sym}</span><span class="mk-t">${vals}</span>`;
 }
 
@@ -18,7 +18,7 @@ for (const map of document.querySelectorAll('[data-wx-map]')) {
   const render = () => {
     const d = Number(day.value), p = Number(period.value), wind = layer.value === '1';
     map.classList.toggle('show-wind', wind);
-    for (const m of markers) m.row.innerHTML = markerInner(m.data[d]?.[p], wind);
+    for (const m of markers) m.row.innerHTML = markerInner(m.data[d]?.[p], wind, map.dataset.kmh);
   };
   for (const el of [day, period, layer]) el.addEventListener('change', render);
   // A choice kept by the browser on back / forward navigation.
