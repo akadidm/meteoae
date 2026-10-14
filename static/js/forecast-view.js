@@ -131,7 +131,7 @@ export function forecastViewHtml({ F, now, sel = 0, S, lang }) {
       T0.sunrise ? [icon('sunrise'), S.sunrise, T0.sunrise] : null,
       T0.sunset ? [icon('sunset'), S.sunset, T0.sunset] : null,
     ].filter(Boolean);
-    nowHtml = `${S.todayTitle ? `<h2 class="fc-h2">${esc(S.todayTitle)}</h2>` : ''}<div class="fc-now">
+    nowHtml = `<div class="fc-now">
 <div class="fc-now-main">
   <p class="fc-now-label">${esc(cur.live ? fill(S.nowAt, { time: cur.time.slice(11, 16) }) : fill(S.forecastAt, { time: cur.time.slice(11, 16) }))}</p>
   <div class="fc-now-temp">${icon(weatherIconNameFor(cur.code, cur.isDay), 'ic-w ic-big')}<span>${f.T(cur.t)}</span></div>
