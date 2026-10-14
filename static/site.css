@@ -245,11 +245,20 @@ td .with-ic, th .with-ic { white-space: nowrap; }
 
 .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
 .chips span[aria-current] { background: var(--text); color: var(--bg); border-color: var(--text); }
-/* All cities by region: blocks flow down columns, each kept whole. */
-.regions { columns: 2 340px; column-gap: 32px; }
-.region { break-inside: avoid; padding-bottom: 22px; }
-.region h3 { margin: 0 0 10px; }
-.region h3 .muted { font-weight: 500; font-size: 0.9em; }
+/* All cities by region: a card per region, the cards flowing down columns, each kept whole. */
+.regions { columns: 3 300px; column-gap: 16px; }
+.region {
+  break-inside: avoid; margin-bottom: 16px; padding: 14px 18px 12px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+}
+.region h3 {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  margin: 0 0 8px; padding-bottom: 10px; border-bottom: 1px solid var(--border); font-size: 15px;
+}
+.region-n { font-size: 12px; font-weight: 600; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.city-links { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); column-gap: 14px; }
+.city-links a { display: block; padding: 4px 0; font-size: 14px; line-height: 1.35; color: var(--text-2); }
+.city-links a:hover { color: var(--link); }
 .chips a .muted { display: inline; padding: 0; padding-inline-start: 2px; border: 0; background: none; box-shadow: none; font-weight: 500; color: var(--text-3); }
 
 /* ---------- sections, tiles */
