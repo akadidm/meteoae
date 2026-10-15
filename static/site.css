@@ -367,7 +367,7 @@ tbody tr:hover { background: var(--surface-2); }
 .site-footer a:hover { color: #fff; }
 .footer-cols { display: grid; grid-template-columns: 2fr repeat(auto-fit, minmax(160px, 1fr)); gap: 28px 24px; padding-bottom: 28px; margin-bottom: 20px; border-bottom: 1px solid var(--f-line); }
 .footer-brand p { margin: 8px 0 0; color: var(--f-muted); max-width: 30ch; line-height: 1.5; }
-.footer-name { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; color: #fff !important; }
+.footer-name { margin: 0; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; }
 .footer-cols h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--f-muted); margin: 4px 0 12px; }
 .footer-cols ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; }
 .site-footer .langs a, .site-footer .langs span { color: var(--f-text); }
