@@ -27,12 +27,12 @@
 <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
 <script>try{var th=localStorage.getItem('theme');if(th==='light'||th==='dark')document.documentElement.setAttribute('data-theme',th)}catch(e){}</script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/static/brand/icon-32.png?v=mv8quzgq" type="image/png" sizes="32x32">
-<link rel="icon" href="/static/brand/icon-192.png?v=mv8quzgq" type="image/png" sizes="192x192">
-<link rel="apple-touch-icon" href="/static/brand/apple-touch-icon.png?v=mv8quzgq">
+<link rel="icon" href="/static/brand/icon-32.png?v=mv8rvj1d" type="image/png" sizes="32x32">
+<link rel="icon" href="/static/brand/icon-192.png?v=mv8rvj1d" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/static/brand/apple-touch-icon.png?v=mv8rvj1d">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/static/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/static/site.css?v=mv8quzgq">
+<link rel="stylesheet" href="/static/site.css?v=mv8rvj1d">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://weatherplus.ae/#organization","name":"WeatherPlus","url":"https://weatherplus.ae/","logo":{"@type":"ImageObject","url":"https://weatherplus.ae/static/brand/logo-square.png"}},{"@type":"WebSite","@id":"https://weatherplus.ae/#website","url":"https://weatherplus.ae/","name":"WeatherPlus","publisher":{"@id":"https://weatherplus.ae/#organization"},"inLanguage":"en"},{"@type":"WebPage","@id":"https://weatherplus.ae/tides/dubai/#webpage","url":"https://weatherplus.ae/tides/dubai/","name":"Dubai Tides Today: High & Low Tide Times","description":"Tides in Dubai today: high tide at 02:35, 14:09, low tide at 07:36, 21:15. Tide times and heights for the next 7 days, with waves and sea temperature.","isPartOf":{"@id":"https://weatherplus.ae/#website"},"inLanguage":"en","breadcrumb":{"@id":"https://weatherplus.ae/tides/dubai/#breadcrumb"},"dateModified":"2026-10-14"},{"@type":"BreadcrumbList","@id":"https://weatherplus.ae/tides/dubai/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://weatherplus.ae/"},{"@type":"ListItem","position":2,"name":"Tides","item":"https://weatherplus.ae/tides/"},{"@type":"ListItem","position":3,"name":"Dubai","item":"https://weatherplus.ae/tides/dubai/"}]}]}</script>
 </head>
@@ -40,15 +40,15 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="brand brand-img" href="/"><img class="brand-logo brand-logo-light" src="/static/brand/weatherplus-logo.png?v=mv8quzgq" width="430" height="112" alt="WeatherPlus"><img class="brand-logo brand-logo-dark" src="/static/brand/weatherplus-logo-dark.png?v=mv8quzgq" width="430" height="112" alt="WeatherPlus"></a>
+    <a class="brand brand-img" href="/"><img class="brand-logo brand-logo-light" src="/static/brand/weatherplus-logo.png?v=mv8rvj1d" width="430" height="112" alt="WeatherPlus"><img class="brand-logo brand-logo-dark" src="/static/brand/weatherplus-logo-dark.png?v=mv8rvj1d" width="430" height="112" alt="WeatherPlus"></a>
     <nav class="main-nav" aria-label="Sections"><a href="/map/">Map</a><a href="/tides/">Tides</a></nav>
     <form class="search" role="search" action="/" data-index="/search-index.json" data-prefix="" data-s="{&quot;forecast&quot;:&quot;{city} forecast&quot;,&quot;country&quot;:&quot;Country&quot;}">
       <label class="sr-only" for="q">Search a city, country or airport</label>
-      <svg class="ic i-search ic-search" aria-hidden="true"><use href="/static/icons.svg?v=mv8quzgq#search"/></svg>
+      <svg class="ic i-search ic-search" aria-hidden="true"><use href="/static/icons.svg?v=mv8rvj1d#search"/></svg>
       <input id="q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search a city" aria-autocomplete="list" aria-controls="search-results" aria-expanded="false">
       <ul id="search-results" class="search-results" role="listbox" hidden></ul>
     </form>
-    <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg class="ic i-moon ic-dark" aria-hidden="true"><use href="/static/icons.svg?v=mv8quzgq#moon"/></svg><svg class="ic i-sun ic-light" aria-hidden="true"><use href="/static/icons.svg?v=mv8quzgq#sun"/></svg></button>
+    <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg class="ic i-moon ic-dark" aria-hidden="true"><use href="/static/icons.svg?v=mv8rvj1d#moon"/></svg><svg class="ic i-sun ic-light" aria-hidden="true"><use href="/static/icons.svg?v=mv8rvj1d#sun"/></svg></button>
   </div>
 </header>
 <main id="main" class="wrap">
@@ -116,7 +116,7 @@
 <h2>About these tides</h2>
 
 <p>Tide times come from an ocean model (Open-Meteo Marine API) for the sea near Dubai, not from a harbour tide gauge: they can differ from the official tide tables by several minutes, and more in estuaries and harbours. Do not use them for navigation.</p>
-<p><a href="/dubai/">Dubai weather forecast →</a></p>
+<p><a href="/">Weather in the UAE →</a></p>
 </section>
 <section id="tides-nearby" class="section">
 <h2>Tides nearby</h2>
@@ -126,17 +126,25 @@
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <nav class="footer-links">
-      <a href="/#all-cities">All locations</a>
-      <a href="/methodology/">Data &amp; methodology</a>
-      <a href="/about/">About</a>
-    </nav>
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <a class="footer-name" href="/">WeatherPlus</a>
+        <p>Weather today and forecast for every city in the UAE</p>
+      </div>
+      
+      
+      <nav aria-label="Tides"><h2>Tides</h2><ul><li><a href="/tides/dubai/">Dubai</a></li><li><a href="/tides/abu-dhabi/">Abu Dhabi</a></li><li><a href="/tides/sharjah/">Sharjah</a></li><li><a href="/tides/ajman/">Ajman</a></li><li><a href="/tides/ras-al-khaimah/">Ras Al Khaimah</a></li><li><a href="/tides/fujairah/">Fujairah</a></li><li><a href="/tides/umm-al-quwain/">Umm Al Quwain</a></li><li><a href="/tides/khor-fakkan/">Khor Fakkan</a></li><li><a href="/tides/">Tides →</a></li></ul></nav>
+      <nav aria-label="About"><h2>WeatherPlus</h2><ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/methodology/">Data &amp; methodology</a></li>
+      </ul></nav>
+    </div>
     <nav class="langs" aria-label="Language"><span aria-current="true" lang="en">English</span><a href="/ar/tides/dubai/" hreflang="ar" lang="ar">العربية</a></nav>
     <p class="attribution">Weather data: <a href="https://open-meteo.com/" rel="noopener">Open-Meteo.com</a> (CC BY 4.0), from the numerical models of national weather services. Forecasts are model output for a grid cell, not official warnings: for weather alerts, follow your national weather service.</p>
     <p class="copyright">© 2026 WeatherPlus</p>
   </div>
 </footer>
-<script src="/static/site.js?v=mv8quzgq" defer></script>
-<script type="module" src="/static/js/tides.js?v=mv8quzgq"></script>
+<script src="/static/site.js?v=mv8rvj1d" defer></script>
+<script type="module" src="/static/js/tides.js?v=mv8rvj1d"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 // shown hour by hour from the strip of day cards (#day=N, a fragment so
 // no duplicate URLs get crawled). forecast-view.js is
 // the build's own module, so the markup matches. Also drives the day tabs of the forecast cards on country / home pages.
-import { forecastViewHtml, normalizeForecast, localNow, upcomingDays } from './forecast-view.js?v=mv8quzgq';
+import { forecastViewHtml, normalizeForecast, localNow, upcomingDays } from './forecast-view.js?v=mv8rvj1d';
 
 const view = document.getElementById('forecast-view');
 
@@ -42,6 +42,7 @@ if (view) {
     const now = localNow(F);
     sel = Math.min(sel, Math.max(0, upcomingDays(F, now).length - 1));
     view.innerHTML = forecastViewHtml({ F, now, sel, S, lang });
+    for (const b of view.querySelectorAll('.fc-hours-view button')) b.setAttribute('aria-pressed', String(b.dataset.hours === (view.dataset.hours || 'strip')));
     if (sel) showCard(sel, 'instant');
   }
 
@@ -70,6 +71,26 @@ if (view) {
     history.replaceState(null, '', url.hash ? url : url.href.replace(/#$/, ''));
   }
 
+  // Hours as a strip of cards (the default) or the detailed list; the choice is kept.
+  const HOURS_KEY = 'hours-view';
+  const setHours = (v) => {
+    view.dataset.hours = v;
+    for (const b of view.querySelectorAll('.fc-hours-view button')) b.setAttribute('aria-pressed', String(b.dataset.hours === v));
+  };
+  let hoursView = 'strip';
+  try { hoursView = localStorage.getItem(HOURS_KEY) === 'list' ? 'list' : 'strip'; } catch { /* storage off */ }
+  setHours(hoursView);
+  view.addEventListener('click', (e) => {
+    const hv = e.target.closest?.('.fc-hours-view button');
+    if (hv) {
+      hoursView = hv.dataset.hours;
+      setHours(hoursView);
+      try { localStorage.setItem(HOURS_KEY, hoursView); } catch { /* storage off */ }
+      return;
+    }
+    // In the strip an hour is a card, not an expandable row.
+    if (view.dataset.hours !== 'list' && e.target.closest?.('.fc-hr > summary')) { e.preventDefault(); return; }
+  });
   view.addEventListener('click', (e) => {
     const tab = e.target.closest?.('.fc-dc, .fc-cc');
     if (tab) {

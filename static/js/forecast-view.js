@@ -4,10 +4,10 @@
 // (static/js/forecast.js re-renders it for the reader's clock, refreshes it from
 // Open-Meteo when the snapshot is old, and switches the day shown), so both
 // produce identical markup. Browser-safe: no Node imports.
-import { SPRITE } from './icons.js?v=mv8quzgq';
-import { esc } from './esc.js?v=mv8quzgq';
-import { icon, windArrow, weatherIconName } from './icons.js?v=mv8quzgq';
-import { fmt, pad } from './view-format.js?v=mv8quzgq';
+import { SPRITE } from './icons.js?v=mv8rvj1d';
+import { esc } from './esc.js?v=mv8rvj1d';
+import { icon, windArrow, weatherIconName } from './icons.js?v=mv8rvj1d';
+import { fmt, pad } from './view-format.js?v=mv8rvj1d';
 
 // Open-Meteo counts a request as (variables / 10) x (days / 14) calls per
 // location: these 32 variables over 15 days cost about 3.5 calls.
@@ -131,7 +131,7 @@ export function forecastViewHtml({ F, now, sel = 0, S, lang }) {
       T0.sunrise ? [icon('sunrise'), S.sunrise, T0.sunrise] : null,
       T0.sunset ? [icon('sunset'), S.sunset, T0.sunset] : null,
     ].filter(Boolean);
-    nowHtml = `<div class="fc-now">
+    nowHtml = `<div class="fc-now" data-sky="${sky(cur.code)}" data-day="${cur.isDay === false ? 0 : 1}">
 <div class="fc-now-main">
   <p class="fc-now-label">${esc(cur.live ? fill(S.nowAt, { time: cur.time.slice(11, 16) }) : fill(S.forecastAt, { time: cur.time.slice(11, 16) }))}</p>
   <div class="fc-now-temp">${icon(weatherIconNameFor(cur.code, cur.isDay), 'ic-w ic-big')}<span>${f.T(cur.t)}</span></div>
@@ -191,7 +191,7 @@ function dayPanelHtml({ F, d, i, sel, now, today, S, f }) {
 <span class="fc-hr-ic">${icon(weatherIconNameFor(h.code, h.isDay), 'ic-w')}</span>
 <span class="fc-hr-t">${f.Tr(h.t)}</span>
 <span class="fc-hr-cond">${h.code in S.wmo ? esc(S.wmo[h.code]) : ''}${h.feels != null ? `<small>${esc(S.feelsLike)} ${f.Tr(h.feels)}</small>` : ''}</span>
-<span class="fc-hr-wind">${h.dir != null ? windArrow(h.dir) : icon('wind')}<span>${h.dir != null ? esc(compass(h.dir)) : ''}<small>${f.W(h.wind)}${h.gust != null ? ` – ${f.W(h.gust)}` : ''}</small></span></span>
+<span class="fc-hr-wind">${h.dir != null ? windArrow(h.dir) : icon('wind')}<span><b class="fc-hr-dir">${h.dir != null ? esc(compass(h.dir)) : ''}</b><small>${f.W(h.wind)}<span class="fc-hr-gust">${h.gust != null ? ` – ${f.W(h.gust)}` : ''}</span></small></span></span>
 <span class="fc-hr-rain${wet ? ' wet' : ''}">${icon('droplet')}<span>${h.pop == null ? '' : `${Math.round(h.pop)}&#8239;%`}<small>${wet ? f.P(h.precip) : ''}</small></span></span>
 <span class="fc-chev" aria-hidden="true"></span>
 </summary><p class="fc-hr-more">${more.join('<span aria-hidden="true"> · </span>')}</p></details></li>`;
@@ -204,7 +204,8 @@ function dayPanelHtml({ F, d, i, sel, now, today, S, f }) {
   ].filter(Boolean);
   const title = d.date === today ? S.todayTitle : fill(S.dayTitle, { date: `${f.weekday(d.date)} ${f.date(d.date)}` });
   return `<section class="fc-panel" role="tabpanel" id="fc-panel-${i}" aria-labelledby="fc-tab-${i}"${i === sel ? '' : ' hidden'}>
-<h3 class="fc-panel-title">${esc(title)} <span class="fc-detail-cond">${f.code(d.code)}</span></h3>
+<div class="fc-panel-head"><h3 class="fc-panel-title">${esc(title)} <span class="fc-detail-cond">${f.code(d.code)}</span></h3>
+<div class="fc-hours-view" role="group" aria-label="${esc(S.hoursView)}"><button type="button" data-hours="strip">${esc(S.hoursStrip)}</button><button type="button" data-hours="list">${esc(S.hoursList)}</button></div></div>
 <p class="fc-panel-facts">${facts.map((x) => `<span>${x}</span>`).join('')}</p>
 ${rows ? `<ol class="fc-hrs">${rows}</ol>` : `<p class="muted">${esc(S.noHourly)}</p>`}
 </section>`;
@@ -276,6 +277,16 @@ function uvLevel(S, uv) {
 
 // Always an icon: unknown codes fall back to a plain cloud.
 function weatherIconNameFor(code, isDay) { return weatherIconName(code, isDay) || 'cloud'; }
+
+/** The sky behind the current conditions (static/site.css colours it, with day / night). */
+function sky(code) {
+  if (code == null) return 'cloudy';
+  if (code >= 95) return 'storm';
+  if ((code >= 71 && code <= 77) || code === 85 || code === 86) return 'snow';
+  if (code >= 51) return 'rain';
+  if (code === 45 || code === 48 || code === 3) return 'cloudy';
+  return code === 2 ? 'partly' : 'clear';
+}
 
 /** Compact day card used on country and home pages: [{date, code, tmax, tmin, precip, wind}]. */
 export function dayChipHtml(d, f) {
