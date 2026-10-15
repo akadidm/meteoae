@@ -365,17 +365,20 @@ tbody tr:hover { background: var(--surface-2); }
 }
 .site-footer a { color: #e2e8f0; }
 .site-footer a:hover { color: #fff; }
-.footer-cols { display: grid; grid-template-columns: 2fr repeat(auto-fit, minmax(160px, 1fr)); gap: 28px 24px; padding-bottom: 28px; margin-bottom: 20px; border-bottom: 1px solid var(--f-line); }
+.footer-cols { display: grid; grid-template-columns: minmax(220px, 2fr) repeat(2, minmax(160px, 1fr)); gap: 28px 24px; padding-bottom: 28px; margin-bottom: 20px; border-bottom: 1px solid var(--f-line); }
 .footer-brand p { margin: 8px 0 0; color: var(--f-muted); max-width: 30ch; line-height: 1.5; }
-.footer-name { margin: 0; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; }
+.footer-brand .footer-name { margin: 0; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; }
 .footer-cols h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--f-muted); margin: 4px 0 12px; }
 .footer-cols ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; }
-.site-footer .langs a, .site-footer .langs span { color: var(--f-text); }
-.site-footer .langs span[aria-current] { background: rgba(255, 255, 255, 0.12); color: #fff; }
-.site-footer .langs a:hover { background: rgba(255, 255, 255, 0.08); }
+.site-footer .langs { display: block; margin: 0; font-size: inherit; font-weight: inherit; }
+.site-footer .langs a, .site-footer .langs span { display: inline-block; padding: 0; border-radius: 0; color: var(--f-text); }
+.site-footer .langs span[aria-current] { background: none; color: #fff; font-weight: 700; }
+.site-footer .langs a:hover { background: none; }
+
 .attribution { max-width: 90ch; color: var(--f-muted); font-size: 13px; }
 .copyright { color: var(--f-muted); margin: 0; font-size: 13px; }
-@media (max-width: 900px) { .footer-cols { grid-template-columns: repeat(2, 1fr); } .footer-brand { grid-column: 1 / -1; } }
+@media (max-width: 860px) { .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } .footer-brand { grid-column: 1 / -1; } }
+@media (max-width: 420px) { .footer-cols { grid-template-columns: minmax(0, 1fr); } }
 
 
 /* ---------- small screens */
