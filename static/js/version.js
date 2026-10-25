@@ -1,1 +1,1 @@
-export const ASSET_VERSION = "mvmd4upz";
+export const ASSET_VERSION = "mvnstdo9";
