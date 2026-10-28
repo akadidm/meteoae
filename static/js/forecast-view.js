@@ -4,10 +4,10 @@
 // (static/js/forecast.js re-renders it for the reader's clock, refreshes it from
 // Open-Meteo when the snapshot is old, and switches the day shown), so both
 // produce identical markup. Browser-safe: no Node imports.
-import { SPRITE } from './icons.js?v=mvsfr7f1';
-import { esc } from './esc.js?v=mvsfr7f1';
-import { icon, windArrow, weatherIconName } from './icons.js?v=mvsfr7f1';
-import { fmt, pad } from './view-format.js?v=mvsfr7f1';
+import { SPRITE } from './icons.js?v=mvslgxdp';
+import { esc } from './esc.js?v=mvslgxdp';
+import { icon, windArrow, weatherIconName } from './icons.js?v=mvslgxdp';
+import { fmt, pad } from './view-format.js?v=mvslgxdp';
 
 // Open-Meteo counts a request as (variables / 10) x (days / 14) calls per
 // location: these 32 variables over 15 days cost about 3.5 calls.
