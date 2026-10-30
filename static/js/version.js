@@ -1,1 +1,1 @@
-export const ASSET_VERSION = "mvukxtsh";
+export const ASSET_VERSION = "mvvar457";
