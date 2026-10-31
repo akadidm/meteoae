@@ -4,7 +4,7 @@
 // shown hour by hour from the strip of day cards (#day=N, a fragment so
 // no duplicate URLs get crawled). forecast-view.js is
 // the build's own module, so the markup matches. Also drives the day tabs of the forecast cards on country / home pages.
-import { forecastViewHtml, normalizeForecast, localNow, upcomingDays } from './forecast-view.js?v=mvvnne4u';
+import { forecastViewHtml, normalizeForecast, localNow, upcomingDays } from './forecast-view.js?v=mvw0fsuz';
 
 const view = document.getElementById('forecast-view');
 
