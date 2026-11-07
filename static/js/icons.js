@@ -1,6 +1,6 @@
 // Inline references to the SVG sprite in static/icons.svg. Icons are decorative
 // (aria-hidden): every icon sits next to a visible text label.
-import { ASSET_VERSION } from './version.js?v=mw60pf6d';
+import { ASSET_VERSION } from './version.js?v=mw6dare7';
 
 export const SPRITE = `/static/icons.svg?v=${ASSET_VERSION}`;
 
