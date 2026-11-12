@@ -1,7 +1,7 @@
 // Value formatters for browser-rendered views (the forecast view). Shared by
 // the build and the browser. Browser-safe: no Node imports.
-import { esc } from './esc.js?v=mwc3ah1w';
-import { icon, weatherIconName, windArrow } from './icons.js?v=mwc3ah1w';
+import { esc } from './esc.js?v=mwct0bz0';
+import { icon, weatherIconName, windArrow } from './icons.js?v=mwct0bz0';
 
 export const pad = (n) => String(n).padStart(2, '0');
 
