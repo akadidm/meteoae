@@ -1,7 +1,7 @@
 // Home page weather map: the day, time of day and symbols / wind selectors
 // redraw every marker from its data-w ([day][period] → [code, isDay, high, low,
 // wind, direction]). The markup matches markerInner() in src/pages/map.js.
-import { icon, weatherIconName, windArrow } from './icons.js?v=mwiirt2g';
+import { icon, weatherIconName, windArrow } from './icons.js?v=mwj8ht7j';
 
 function markerInner(s, wind, kmh = 'km/h') {
   const [code, isDay, hi, lo, w, dir] = s || [];
