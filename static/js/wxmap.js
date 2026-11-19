@@ -3,8 +3,8 @@
 // forecast grid with wind particles on top, city labels, and the live Meteosat
 // satellite loop. The timeline steps through the grid (every 3 hours) or the
 // satellite images (every 10 minutes).
-import { icon, weatherIconName } from './icons.js?v=mwnitd13';
-import { SCALES, LUTS, rgba, dilate } from './wxscales.js?v=mwnitd13';
+import { icon, weatherIconName } from './icons.js?v=mwnvfxca';
+import { SCALES, LUTS, rgba, dilate } from './wxscales.js?v=mwnvfxca';
 
 const root = document.querySelector('[data-wxm]');
 if (root) init(root).catch((err) => console.error('[wxmap]', err));
